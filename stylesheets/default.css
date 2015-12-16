@@ -1,0 +1,80 @@
+* {
+  border: 1px solid black;
+}
+
+html {
+  background-color: gray;
+}
+
+#logo {
+  margin-left: 300px;
+  max-width: 300px;
+}
+
+
+#nav {
+  margin-left: 250px;
+  margin-right: 250px;
+  background-color: navy;
+  width: 500px;
+
+}
+
+#matt {
+  ;
+}
+#blog
+#resume
+#contact
+#rec
+
+.blog {
+  display: inline-block;
+  width: 40%;
+  height: 250px;
+  border: 2px;
+  padding: 10px;
+
+}
+
+#blog_title {
+  margin-left: 10px;
+  border: 2px solid black;
+}
+
+#rec_title {
+  margin-left: 50px;
+  border: 2px solid black;
+}
+
+
+h2 {
+  display: inline-block;
+  margin-top:-200px;
+  margin-bottom: 0px;
+}
+
+.text {
+  display: inline-block;
+  width: 400px;
+  margin-left: 75px;
+}
+
+#blog_text {
+  margin-left: 10px;
+
+}
+
+#rec_text {
+  margin-left: 50px;
+}
+
+
+a {
+  text-decoration: none;
+  color:red;
+}
+
+a:hover {
+  color:white;
+}
