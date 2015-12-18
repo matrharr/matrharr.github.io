@@ -1,0 +1,33 @@
+a:hover{
+  color: blue;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+section {
+  float: left;
+  width: 85%;
+  line-height: 300%;
+}
+
+ol li {
+  font-size: 24px;
+
+}
+
+aside {
+  position: absolute;
+  right: 10px;
+  top: 500px;
+  bottom: 0;
+  width: 178px;
+
+}
+
+article {
+  width:75%;
+}
+
+
