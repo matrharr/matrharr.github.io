@@ -1,78 +1,72 @@
-* {
-  border: 1px solid black;
-}
 
 html {
   background-color: gray;
 }
 
-#logo {
-  margin-left: 300px;
-  max-width: 300px;
+img {
+  margin: 0% 40% 0% 30%;
+  width:50%;
 }
 
-
-#nav {
-  margin-left: 250px;
-  margin-right: 250px;
-  background-color: navy;
-  width: 500px;
+ul {
+  list-style-type: none;
+  margin:0;
+  padding: 8px;
+  overflow: hidden;
+  background-color: #333;
 
 }
 
-#matt {
-  ;
-}
-#blog
-#resume
-#contact
-#rec
-
-.blog {
+li {
   display: inline-block;
-  width: 40%;
-  height: 250px;
-  border: 2px;
-  padding: 10px;
 
 }
 
-#blog_title {
-  margin-left: 10px;
-  border: 2px solid black;
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none
+
 }
 
-#rec_title {
-  margin-left: 50px;
-  border: 2px solid black;
+
+#left {
+  float: left;
+  width: 49%;
+  line-height: 200%;
+  font-size: 15px;
 }
 
+#right {
+  float: right;
+  width: 49%;
+  line-height: 200%;
+  font-size: 15px;
+}
 
-h2 {
+footer {
+  text-align: center;
+  padding-top: 400px;
+}
+
+h6 {
   display: inline-block;
-  margin-top:-200px;
-  margin-bottom: 0px;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 15px;
 }
 
-.text {
-  display: inline-block;
-  width: 400px;
-  margin-left: 75px;
+.line-break{
+  height: 5px;
+  background: #000000;
+  width: 100%;
 }
-
-#blog_text {
-  margin-left: 10px;
-
-}
-
-#rec_text {
-  margin-left: 50px;
-}
-
 
 a {
   text-decoration: none;
-  color:red;
+  color:black;
 }
 
 a:hover {
