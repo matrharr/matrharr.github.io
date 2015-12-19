@@ -13,21 +13,30 @@ section {
 }
 
 ol li {
-  font-size: 24px;
+  font-size: 18px;
 
 }
 
 aside {
-  position: absolute;
-  right: 10px;
-  top: 500px;
-  bottom: 0;
-  width: 178px;
+  position: relative;
+  display: inline-block;
+  bottom: 10em;
+  top:3em;
+  width: 5em;
 
 }
 
 article {
+  display: inline-block;
+  position: relative;
+  left: 5%;
   width:75%;
 }
 
+ol li {
+  display:block;
+}
 
+#post_title {
+  font-size: 2em;
+}
