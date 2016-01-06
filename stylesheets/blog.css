@@ -40,3 +40,24 @@ ol li {
 #post_title {
   font-size: 2em;
 }
+
+table {
+  width: 50%;
+  height: 30em;
+  margin-left: 25%;
+}
+
+thead {
+  font-size: 30px;
+
+}
+
+tbody {
+  font-size: 20px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.left {
+  width: 10em;
+}
