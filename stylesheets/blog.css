@@ -61,3 +61,20 @@ tbody {
 .left {
   width: 10em;
 }
+
+#matt_pic {
+  float: left;
+  width: 30%;
+  margin-left: 5%;
+  margin-right: 0%;
+
+}
+
+#about_me {
+  margin-left: 45%;
+}
+
+#bio {
+  float: right;
+  width: 60%;
+}
