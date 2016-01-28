@@ -1,0 +1,28 @@
+#bottom_left{
+  float: left;
+  width: 45%;
+  border: solid;
+}
+
+#bottom_right{
+  float: right;
+  width: 45%;
+  border: solid;
+}
+
+#top_left{
+  float: left;
+  width: 45%;
+  border: solid;
+}
+
+#top_right{
+  float: right;
+  width: 45%;
+  border: solid;
+}
+
+header{
+  font-size: 5em;
+  margin-left: 10%;
+}
