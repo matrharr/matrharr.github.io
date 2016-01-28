@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="../stylesheets/cheatsheet.css">
+</head>
+
+<body>
+  <header>DevBootCamp Cheat Sheet</header>
+  <section id="top_left">
+    <h1>Ruby</h1>
+      <h2>Methods</h2>
+        <p> <strong>.inject</strong>: (5..10).inject { |sum, n| sum + n } #=> 45<br>
+          <strong>.each_with_index</strong>: [cat, dog, wombat].each_with_index {|item, index| hash[item] = index} #=> {"cat"=>0, "dog"=>1, "wombat"=>2}<br>
+          <strong>.each_with_object</strong>: (1..10).each_with_object([]) { |i, a| a  i*2 } #=> [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+        </p>
+      <h2>Operators</h2>
+        <p>
+          <strong>==</strong>: Compares two objects based on the receiver’s <=> method, returning true if it returns 0. Also returns true if obj and other are the same object.<br>
+          <strong>!=</strong>-: Compares two objects, returning true if they are not equal.<br>
+          <strong>.between?(min,max)</strong>: 3.between?(1, 5) #=> true
+        </p>
+  </section>
+
+  <section id="top_right">
+    <h1>Javascript</h1>
+      <h2>functions</h2>
+        <p>
+          <strong>.reduce()</strong>: SUM var total = [0, 1, 2, 3].reduce(function(a, b) {return a + b;});// total == 6 <br>FLATTEN var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b){return a.concat(b);}, []);// flattened is [0, 1, 2, 3, 4, 5]<br>
+          <strong>.splice()</strong>: array.splice(index,howmany,item1,.....,itemX)<br>
+          <strong>.split()</strong>: string.split(separator,limit)<br>
+        </p>
+      <h2>Operators</h2>
+        <p>
+          <strong>++</strong>: Increment<br>
+          <strong>--</strong>: Decrement<br>
+          <strong>===</strong>: Equal value and equal type<br>
+          <strong>!==</strong>: Not equal value or not equal type<br>
+          <strong>?</strong>: Ternary operator<br>
+        </p>
+      <h2>Loops</h2>
+  </section>
+
+  <section id="bottom_left">
+  <h1>HTML/CSS</h1>
+    <h2>Semantic Tags</h2>
+      <p> article, aside, details, figcaption, figure, footer, header, main, mark, nav, section, summary, time</p>
+    <h2>Basic Tag Structure</h2>
+      <p><xmp><!DOCTYPE html>
+  <html>
+    <head>Meta Data</head>
+    <body>Page Content</body>
+  </html></xmp>
+      </p>
+    <h2>Table Tag Order</h2>
+      <p> <xmp><table style="width:100%">
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table></xmp> </p>
+    <h2>Two Columns</h2>
+      <p>
+      </p>
+    <h2>Top Nav Bar</h2>
+    <h2>Sidebar</h2>
+  </section>
+
+  <section id="bottom_right">
+    <h1>SQL</h1>
+      <h2>Create Table</h2>
+        <p>CREATE TABLE table_name(column1 DATA_TYPE, column2 DATA_TYPE, column3 DATA_TYPE);</p>
+      <h2>Clauses</h2>
+        <p>
+          <strong>SELECT</strong>: Fetch data<br>
+          <strong>UPDATE</strong>: Edit table data<br>
+          <strong>WHERE</strong>: Used to extract those records that fulfill a specified criterion.<br>
+          <strong>INSERT INTO</strong>: Used to insert new records into a table.<br>
+          <strong>ALTER TABLE(table name) ADD COLUMN(new column name) DATA_TYPE</strong>: Add columns
+        </p>
+      <h2>Aggregate Functions</h2>
+        <p>
+          <strong>GROUP BY...DESC/ASC</strong>: Orders output<br>
+          <strong>SUM</strong>: Returns sum of values.<br>
+          <strong>MAX</strong>: Returns largest value.<br>
+          <strong>MIN</strong>: Returns smallest value.<br>
+          <strong>AVG</strong>: Returns average value. <br>
+        </p>
+      <h2>Multiple Tables</h2>
+        <p>
+          <strong>Primary Key</strong>: Unique identifier, no null values.<br>
+          <strong>Foreign Key</strong>: Contains primary key of a different table, can be null, not unique.<br>
+          <strong>JOIN</strong>: Combine rows from different tables.<br>
+          <strong>AS</strong>: Rename a column or table with alias.
+        </p>
+  </section>
+</body>
+
+
+
+</html>
