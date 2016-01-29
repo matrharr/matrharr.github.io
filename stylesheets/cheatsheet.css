@@ -1,28 +1,53 @@
 #bottom_left{
   float: left;
-  width: 45%;
+  width: 43.5%;
   border: solid;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 5%;
 }
 
 #bottom_right{
   float: right;
-  width: 45%;
+  width: 43.4%;
   border: solid;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 5.25%;
 }
 
 #top_left{
   float: left;
-  width: 45%;
+  width: 43.5%;
   border: solid;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 5%;
 }
 
 #top_right{
   float: right;
-  width: 45%;
+  width: 43.4%;
   border: solid;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 5%;
 }
 
 header{
   font-size: 5em;
-  margin-left: 10%;
+  padding-left: 10%;
+  color:aqua;
+}
+
+body {
+  background-color: lightgray;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  text-decoration: underline;
 }
