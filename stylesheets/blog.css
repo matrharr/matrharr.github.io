@@ -1,7 +1,3 @@
-a:hover{
-  color: blue;
-}
-
 h1 {
   font-size: 30px;
 }
@@ -14,12 +10,10 @@ section {
 
 ol li {
   font-size: 18px;
-
 }
 
 aside {
-  position: relative;
-  display: inline-block;
+  float: left;
   bottom: 10em;
   top:3em;
   width: 5em;
@@ -67,7 +61,6 @@ tbody {
   width: 30%;
   margin-left: 5%;
   margin-right: 0%;
-
 }
 
 #about_me {
