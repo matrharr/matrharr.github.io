@@ -4,9 +4,12 @@ html {
 }
 
 
-img {
-  margin: 0% 40% 0% 30%;
-  width:50%;
+main {
+  font-size: 5em;
+  text-align: center;
+  font-family: sans-serif;
+  padding-bottom: 3%;
+  padding-top: 3%;
 }
 
 ul {
