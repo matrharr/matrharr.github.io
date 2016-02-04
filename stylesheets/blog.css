@@ -54,8 +54,14 @@ tbody {
   text-decoration: underline;
 }
 
-.left {
-  width: 10em;
+#contact_img{
+  width: 15em;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+summary {
+  text-align: center;
 }
 
 h4 {
