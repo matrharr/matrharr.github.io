@@ -29,6 +29,7 @@ article {
 
 ol li {
   display:block;
+
 }
 
 #post_title {
@@ -54,6 +55,10 @@ tbody {
 
 .left {
   width: 10em;
+}
+
+h4 {
+  display: inline-block;
 }
 
 #matt_pic {
@@ -88,3 +93,4 @@ tbody {
   float: left;
   margin-top: 10%;
 }
+
