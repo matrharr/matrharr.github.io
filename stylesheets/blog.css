@@ -14,10 +14,8 @@ ol li {
 
 aside {
   float: left;
-  bottom: 10em;
-  top:3em;
   width: 5em;
-
+  padding-bottom: 5%;
 }
 
 article {
@@ -29,11 +27,14 @@ article {
 
 ol li {
   display:block;
-
 }
 
 #post_title {
   font-size: 2em;
+}
+
+.blogs {
+  border-bottom: solid #04B1BE;
 }
 
 table {
@@ -59,6 +60,12 @@ tbody {
 
 h4 {
   display: inline-block;
+}
+
+ul {
+  border-right: solid #04B1BE;
+  border-top: none;
+  border-bottom: none;
 }
 
 #matt_pic {
