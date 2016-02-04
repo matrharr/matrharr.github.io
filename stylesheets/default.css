@@ -1,6 +1,6 @@
 
 html {
-  background-color: gray;
+  background-color: white;
 }
 
 
@@ -10,14 +10,22 @@ main {
   font-family: sans-serif;
   padding-bottom: 3%;
   padding-top: 3%;
+  color: #04B1BE;
+}
+
+article {
+  color: black;
 }
 
 ul {
   list-style-type: none;
   margin:0;
   padding: 8px;
+  text-align: center;
  /* overflow: hidden;*/
-  background-color: #333;
+  /*background-color: #6BDCAD;*/
+  border-bottom: solid #04B1BE;
+  border-top: solid #04B1BE;
 
 }
 
@@ -28,10 +36,10 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none
+  text-decoration: none;
 
 }
 
@@ -51,21 +59,23 @@ li a {
 }
 
 #home_content {
-  border-top: solid black;
+  border-top: solid #04B1BE;
+  color: black;
 }
 
 footer {
-  border-top: solid black;
+  border-top: solid #04B1BE;
   text-align: center;
   clear: both;
-  /*padding-top: 100px;*/
+  color: black;
+
 }
 
-h6 {
+h4 {
   display: inline-block;
   padding-left: 5%;
   padding-right: 5%;
-  font-size: 15px;
+  color: black;
 }
 
 /*.line-break{
@@ -77,8 +87,9 @@ h6 {
 a {
   text-decoration: none;
   color:black;
+  text-decoration: underline;
 }
 
 a:hover {
-  color:blue;
+  color:#04B1BE;
 }
