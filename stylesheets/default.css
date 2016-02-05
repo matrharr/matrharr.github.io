@@ -3,7 +3,6 @@ html {
   background-color: #E6EAEB;
 }
 
-
 main {
   font-size: 5em;
   text-align: center;
@@ -22,8 +21,6 @@ ul {
   margin:0;
   padding: 8px;
   text-align: center;
- /* overflow: hidden;*/
-  /*background-color: #6BDCAD;*/
   border-bottom: solid #04B1BE;
   border-top: solid #04B1BE;
 
@@ -40,7 +37,9 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
 }
 
 
@@ -68,7 +67,6 @@ footer {
   text-align: center;
   clear: both;
   color: black;
-
 }
 
 h4 {
@@ -76,18 +74,13 @@ h4 {
   padding-left: 5%;
   padding-right: 5%;
   color: black;
+  font-family: sans-serif;
 }
-
-/*.line-break{
-  height: 5px;
-  background: #000000;
-  width: 100%;
-}*/
 
 a {
   text-decoration: none;
   color:black;
-  text-decoration: underline;
+  font-family: sans-serif;
 }
 
 a:hover {
