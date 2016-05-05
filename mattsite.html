@@ -442,7 +442,7 @@
 
   <h1 class="header no_link"><a class="no_link" name="contact">Contact</a></h1>
 
-  <div class="row contact_form">
+  <!-- <div class="row contact_form">
     <form action="contact-form-handler.php" method="post" name="contact_form" enctype="text/plain" class="col s12">
       <div class="row">
         <div class="input-field col s5">
@@ -470,17 +470,25 @@
           <i class="material-icons right">send</i>
         </button>
     </form>
-  </div>
+  </div> -->
+
+  <form method="post" name="contact_form"
+action="contact-form-handler.php">
+    Your Name:
+    <input type="text" name="name">
+    Email Address:
+    <input type="text" name="email">
+    Message:
+    <textarea name="message"></textarea>
+    <input type="submit" value="Submit">
+</form>
 
   <script language="JavaScript">
 var frmvalidator  = new Validator("contactform");
-frmvalidator.addValidation("first_name","req","Please provide your first name");
-frmvalidator.addValidation("last_name","req","Please provide your last name");
-frmvalidator.addValidation("company","req","Please provide your company");
+frmvalidator.addValidation("name","req","Please provide your name");
 frmvalidator.addValidation("email","req","Please provide your email");
 frmvalidator.addValidation("email","email",
   "Please enter a valid email address");
-frmvalidator.addValidation("message","req","Please write a message");
 </script>
 
 </body>
