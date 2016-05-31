@@ -131,13 +131,12 @@ span {
 }
 
 #first_aid {
-  margin-top: -40px;
   color: #458c44;
 }
 
 #e-commerce {
   color: #ffa145;
-  margin-top: -40px;
+
 }
 
 #foundit {
@@ -145,12 +144,10 @@ span {
 }
 
 #faker {
-  padding-top: 50px;
   color: #ad1401;
 }
 
 #personal_site {
-  padding-top: -50px;
   color: #34495D
 }
 
