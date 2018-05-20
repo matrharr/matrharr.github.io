@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        .clickables {
+            z-index: 2;
+        }
+        div.circle {
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            -webkit-transition-duration: 1s;
+            -webkit-transition-property: all;
+            -webkit-transition-timing-function: ease-in-out;
+            text-align: center;
+            background: grey;
+            border-radius: 100%;
+            z-index: -1;
+        }
+        div.open {
+            width: 100%;
+            height: 100%;
+            border-radius: 0%;
+        }
+        div.butt {
+            height: 600px;
+            width: 284px;
+            padding: 10px 10px 20px 10px;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid #BFBFBF;
+            background-color: white;
+            box-shadow: 10px 10px 5px #aaaaaa;
+        }
+      </style>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script>
+      function doThing(el) {
+        $('div.circle').toggleClass('open');
+        if( $('div.circle').hasClass('open') ) {
+            $('div.butt').fadeIn("slow");
+        } else {
+            $('div.butt').fadeOut("slow");
+        }
+      }
+      </script>
+    </head>
+    <body>
+        <div class="circle">
+            <div id="work_experiences">
+                <div hidden style="width: 25%; float: left; margin-left: 5%;" class="butt">Look at dat</div>
+                <div hidden style="width: 25%; float: left;"  class="butt">Look at dat</div>
+                <div hidden style="width: 25%; float: left;"  class="butt">Look at dat</div>
+            </div>
+        </div>
+        <h1>hey this is my website</h1>
+        <a href="#" onclick="doThing(this)" id="work_exp" class="clickables">work exp</a><br />
+        <a href="#" onclick="doThing(this)" class="clickables">resume</a><br />
+        <a href="#" onclick="doThing(this)" class="clickables">projects</a><br />
+        <a href="#" onclick="doThing(this)" class="clickables">LinkedIn</a><br />
+        <a href="#" onclick="doThing(this)" class="clickables">Github</a><br />
+</body>
+</html>
