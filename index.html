@@ -55,7 +55,11 @@
   <h1 class="header"><a class="no_link" name="about_me">About Me</a></h1>
 
   <img src="assets/matt.png" id="mattpic">
-  <h2 id="about">People, productivity, and purpose. These are the three things that I value deeply, and three things to which I strive to dedicate my time. As a software engineer I work to bring these values to every project I develop and and I constantly seek to improve my processes for collaboration, execution and self evaluation. I'm always looking to explore new projects, opportunities and ideas so feel free to reach out, I'm always down to talk!</h2>
+  <h2 id="about">People, productivity, and purpose. These are the three things that I value deeply,
+      and three things to which I strive to dedicate my time. As a software engineer I work to bring
+      these values to every project I develop and and I constantly seek to improve my processes for
+      collaboration, execution and self evaluation. I'm always looking to explore new projects, opportunities
+      and ideas so feel free to reach out, I'm always down to talk!</h2>
 
 
     <h1 class="header"><a class="no_link" name="stack">Stack</a></h1>
@@ -314,51 +318,53 @@
     <div class="row">
       <div class="col s6">
         <div class="caption center-align">
-          <h3 class="portfolio_title" id="first_aid">FirstAid</h3>
-          <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal1"><img width="100%" src="assets/firstaid2.jpg"></a></h5>
-        </div></div>
+          <h3 class="portfolio_title" id="foundit">The Plus Project</h3>
+          <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal2"><img width='100%' src="assets/plus6.jpg"></a></h5>
+        </div>
+      </div>
       <div class="col s6">
         <div class="caption center-align">
-          <h3 class="portfolio_title" id="foundit">Foundit</h3>
-          <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal2"><img width='100%' src="assets/foundit2.jpg"></a></h5>
-        </div></div>
-      <div class="col s6">
-        <div class="caption center-align">
-          <h3 class="portfolio_title " id="e-commerce">Crabazon</h3>
-          <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal3"><img width='100%' src="assets/e-commerce.jpg"></a></h5>
-        </div></div>
+          <h3 class="portfolio_title " id="e-commerce">SMS Card</h3>
+          <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal3"><img width='100%' src="assets/sms2.jpg"></a></h5>
+        </div>
+      </div>
       <div class="col s6">
         <div class="caption center-align">
           <h3 class="portfolio_title" id="faker">Schwarzefaker</h3>
           <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal4"><img width='100%' src="assets/faker.jpg"></a></h5>
-        </div></div>
+        </div>
+      </div>
+      <div class="col s6">
+        <div class="caption center-align">
+          <h3 class="portfolio_title" id="first_aid">Trip Planner</h3>
+          <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal1"><img width="100%" src="assets/tripplanner.jpg"></a></h5>
+        </div>
+      </div>
       <div class="col s6">
         <div class="caption center-align">
           <h3 class="portfolio_title" id="personal_site">Portfolio</h3>
           <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal5"><img width='100%' src="assets/mattsite.jpg"></a></h5>
-        </div></div>
+        </div>
+      </div>
     </div>
 
 
 
       <div id="modal1" class="modal">
         <div class="modal-content">
-          <h4 class="modal_title" id="first_aid_modal">FirstAid</h4>
-          <img class="modal_img" src="assets/firstaid2.jpg">
+          <h4 class="modal_title" id="first_aid_modal">Trip Planner</h4>
+          <img class="modal_img" src="assets/tripplanner.jpg">
           <p class="modal_text">
-            <a href="http://first-aid.herokuapp.com/">Check out the site here!</a><br>
+            <a href="#">Live site coming soon!</a><br>
+            <a href="https://github.com/matrharr/trip_generator">Github</a><br>
             Role: Full Stack Engineer
             <br><br>
-            Stack: Rails, jQuery, D3, Twilio, ActiveMailer, Devise, Stripe, PostgreSQL
+            Stack: Python, Django, SQLite, ReactJS, FourSquare API, Google Geocode API
             <br><br>
-            Donation platform for community members to directly give to their preferred local charities or disaster relief areas.
+            A web application that generates a trip itinerary, including flights and accommodations, based off user destinations and dates.
             <br>
-            -Reduced HTTP requests to server by ~40% through engineering a RESTful Ruby on Rails API following a single-page application architecture, using AJAX to handle asynchronous calls.<br>
-            -Incorporated Twilio and Stripe APIs to alert users via SMS when disasters have occurred, for quick donations. <br>
-            -Utilized JavaScript and D3 to visualize (bar and pie charts) aggregated donation data across 6 categories. <br>
-            -Architected PostgreSQL DB with ActiveRecord to establish one-to-one, one-to-many, and many-to-many relationships across 7 different tables to store user, charity, and disaster related data.<br>
-            -Wrote 25+ functional and unit tests using Capybara and RSpec to speed the development iteration process.
-
+            - Leveraged web APIs to gather data points
+            - Designed itinerary generating algorithm
 </p>
         </div>
         <div class="modal-footer">
@@ -368,18 +374,19 @@
 
       <div id="modal2" class="modal">
         <div class="modal-content">
-          <h4 class="modal_title" id="foundit_modal">Foundit</h4>
-          <img class="modal_img" src="assets/foundit.jpg">
+          <h4 class="modal_title" id="foundit_modal">The Plus Project</h4>
+          <img class="modal_img" src="assets/plus6.jpg">
           <p class="modal_text">
-            <a href="https://foundit-app.herokuapp.com/">Check out the site here!</a><br>
-            Role: Full Stack Engineer
+            <a href="https://theplusproject.herokuapp.com/">Live site</a><br>
+            <a href="https://github.com/matrharr/theplusproject">Github</a><br>
+            Role: Full Stack Engineer + Content Writer
             <br><br>
-            Stack: Rails, jQuery, SQL, Paperclip, Google Maps API
+            Stack: Rails, jQuery, PostgreSQL, CKEditor, Heroku
             <br><br>
-            City-wide lost and found tool for citizens to quickly locate missing items through highly efficient searching algorithm.<br>
-            -Facilitated scrum agile development on team of 4 engineers, leading standups and managing Git workflow.<br>
-            -Constructed user photo upload functionality with Paperclip, storing lost and found images in PostgreSQL DB.<br>
-            -Wrote search algorithm in Ruby that compares items based on cosine similarity with ~99% matching accuracy.
+            The Plus Project provides free educational content on web development and CS topics through Ruby and Javascript.<br />
+            - Wrote over 15 articles using images, concise term definitions and code snippets to teach abstract CS concepts
+            (data structures, algorithms, design patterns) along with practical code execution using JavaScript.<br />
+            - Constructed Ruby on Rails RESTful API with admin and user responsive web interfaces using custom CSS3.
 
 </p>
         </div>
@@ -390,17 +397,19 @@
 
       <div id="modal3" class="modal">
         <div class="modal-content">
-          <h4 class="modal_title" id="ecommerce_modal">Crabazon</h4>
-          <img class="modal_img" src="assets/e-commerce.jpg">
+          <h4 class="modal_title" id="ecommerce_modal">SMS Card</h4>
+          <img class="modal_img" src="assets/sms2.jpg">
           <p class="modal_text">
-            Role: Full Stack Engineer
+            <a href="https://github.com/matrharr/sms-card/">Github</a><br>
+            Role: Backend Engineer
             <br><br>
-            Stack: Rails, jQuery, PostgreSQL, Ruby, AJAX, Stripe, BCrypt, Paperclip, HTML, CSS
+            Stack: Ruby, Rails, PostgreSQL, Twilio, Heroku
             <br><br>
-            E-commerce service for thrifty shoppers to quickly crawl through the best deals and pincer them into their cart.<br>
-            -Created separate Admin and Customer interfaces with Ruby on Rails to properly divide role related privileges.<br>
-            -Eliminated page refresh when adding to cart with modal in JavaScript, and used ActionMailer for notifications.<br>
-            -Designed UI/UX using JavaScript, jQuery, and CSS3, with HTML5 media queries to create responsive layout.</p>
+            Mobile tool for business professionals to easily network with new acquaintances by sending their business cards via SMS.<br />
+            - Architected CLI-like SMS interface with Rails for users to text flags and specialized parameters for networking.<br />
+            - Constructed Ruby on Rails RESTful API to parse through data from Twilio messaging system and send relevant
+            business card information queried from PostgreSQL DB.
+
         </div>
         <div class="modal-footer">
           <a href="#!" class=" modal-action modal-close waves-effect waves-orange btn-flat">Close</a>
@@ -412,7 +421,7 @@
           <h4 class="modal_title" id="gem_modal">Schwarzefaker</h4>
           <img class="modal_img" src="assets/faker.jpg">
           <p class="modal_text">
-            <a href="https://rubygems.org/gems/schwarzefaker">Check out the documentation here!</a><br>
+            <a href="https://rubygems.org/gems/schwarzefaker">RubyGems Documentation</a><br>
             Role: Ruby Terminator
             <br><br>
             Faker Ruby Gem that populates database with Arnold Schwarzenegger movies, quotes, characters and villains.<br>
@@ -431,6 +440,7 @@
           <h4 class="modal_title" id="site_modal">Portfolio</h4>
           <img class="modal_img" src="assets/mattsite.jpg">
           <p class="modal_text">
+            <a href="https://github.com/matrharr/matrharr.github.io">Github</a><br>
             Role: Front End Engineer
             <br><br>
             Stack: HTML, CSS, Javascript, jQuery, AJAX, Photoshop, Materialize
