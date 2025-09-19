@@ -1,460 +1,852 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Matt Harris</title>
-  <link rel="stylesheet" href="materialize/css/materialize.css">
-  <link rel="stylesheet" href="materialize/css/mattsite.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt Harris - Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-text: #1a1a1a;
+            --secondary-text: #666;
+            --accent-color: #2563eb;
+            --accent-secondary: #1e40af;
+            --light-bg: #fafafa;
+            --border-color: #e5e5e5;
+            --subtle-bg: #f8fafc;
+            --max-width: 1000px;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-subtle: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-large: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-text);
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            box-shadow: var(--shadow-subtle);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: 'Source Serif Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-text);
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 70px;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.03) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-family: 'Source Serif Pro', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: var(--primary-text);
+        }
+
+        .hero .subtitle {
+            font-size: 1.375rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.025em;
+        }
+
+        .hero .description {
+            font-size: 1rem;
+            color: var(--secondary-text);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Source Serif Pro', serif;
+            font-size: 2.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 2px 0 0 2px;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-large);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-text);
+        }
+
+        .experience-company {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .experience-company::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .experience-item:hover .experience-company::after {
+            width: 100%;
+        }
+
+        .experience-date {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            font-weight: 400;
+        }
+
+        .experience-description {
+            color: var(--secondary-text);
+            line-height: 1.7;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-large);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.25rem 0;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-subtle);
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-subtle);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-large);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .project-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-text);
+        }
+
+        .project-description {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--light-bg);
+            color: var(--secondary-text);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #2a4c7a;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--gradient-subtle);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #2a4c7a;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero .cta-buttons {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
 </head>
-
 <body>
-
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-<script src="materialize/js/mattsite.js"></script>
-
-
-  <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo"><img src="assets/logo.png" id="logo"></a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons"><img src="assets/hamburger-icon.png" id="hamburger"></i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#about_me">About</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#stack">Stack</a></li>
-          <!-- <li><a href="#blog">Blog</a></li> -->
-          <li><a href="#projects">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li>
-            </li><a class='dropdown-button' href='#' data-activates='dropdown1'>Social</a>
-
-            <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="https://www.linkedin.com/in/matrharr">Linkedin</a></li>
-            <li><a href="https://github.com/matrharr">Github</a></li>
-          </li>
-        </ul>
-        <ul class="side-nav" id="mobile-demo">
-          <li><a href="#about_me">About</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#stack">Stack</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#projects">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        </ul>
-      </div>
+        <div class="nav-container">
+            <a href="#" class="logo">Matt Harris</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-  </div>
 
-  <img src="assets/computer_final.jpg" id="banner">
-
-
-
-  <h1 class="header"><a class="no_link" name="about_me">About Me</a></h1>
-
-  <img src="assets/matt.png" id="mattpic">
-  <h2 id="about">People, productivity, and purpose. These are the three things that I value deeply,
-      and three things to which I strive to dedicate my time. As a software engineer I work to bring
-      these values to every project I develop and I constantly seek to improve my processes for
-      collaboration, execution and self evaluation. I'm always looking to explore new projects, opportunities
-      and ideas so feel free to reach out, I'm always down to talk!</h2>
-
-  <h1 class="header"><a class="no_link" name="resume">Resume</a></h1>
-  <!-- <object data="assets/resume.pdf#toolbar=0"  width="300" height="200">
-    <a href="assets/resume.pdf">resume.pdf</a>
-  </object> -->
-  <div class="resume">
-    <embed 
-      src="assets/resume.pdf#toolbar=0"
-      type="application/pdf"
-      width="100%"
-      height="600px"
-    ></embed>
-  </div>
-
-
-
-  <h1 class="header"><a class="no_link" name="stack">Stack</a></h1>
-  <div class="row">
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="assets/python.png">
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="assets/javascript.png">
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="assets/django.png">
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="assets/angular.png">
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="assets/react.png">
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator jquery" src="assets/numpy.png">
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="assets/github.png">
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="assets/html.png">
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="assets/css.png">
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="assets/sql.png">
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="assets/postgreSQL.png">
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3 l2">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="assets/ruby.png">
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <img class="sideline"src="assets/sideline.png">
-    <img class="quote" src="assets/quote1.png">
-
-
-  <!-- <h1 class="header no_link"><a class="no_link" name="blog">Blog</a></h1>
-
-    <div class="row">
-        <div class="col s12 m6">
-          <div class="card no_shadow">
-            <div class="card-image">
+    <main>
+        <section class="hero" id="about">
+            <div class="container">
+                <h1>Matt Harris</h1>
+                <p class="subtitle">Software Engineer</p>
+                <p class="description">
+                    I build thoughtful, user-centered applications with a focus on clean code, 
+                    collaborative development, and meaningful impact. Passionate about creating 
+                    solutions that bring people, productivity, and purpose together.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#experience" class="btn btn-primary">View Experience</a>
+                    <a href="Matt_Harris_resume (2) (1).pdf" class="btn btn-secondary" target="_blank">Resume</a>
+                </div>
             </div>
-            <div class="card-content">
-              <span class="card-title"><a class="waves-effect waves-light btn" href="#">Big_O_Notation</a></span>
-              <p></p>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Experience</h2>
+                    <p class="section-subtitle">
+                        Building software solutions with a focus on collaboration and clean architecture
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Staff Software Engineer</h3>
+                            <p class="experience-company">Procore</p>
+                        </div>
+                        <span class="experience-date">Aug 2022 - Present</span>
+                    </div>
+                    <p class="experience-description">
+                        Tech Lead for Conversations team, replatformed from Ruby on Rails monolith to distributed system with Kafka, Redis, and microservices. Scaled product from beta to GA serving 6,000+ companies. Integrated Procore Copilot (LLM) enabling AI-powered messaging via FastAPI and ReactJS.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Senior Software Engineer</h3>
+                            <p class="experience-company">Actium Health</p>
+                        </div>
+                        <span class="experience-date">Nov 2020 - July 2022</span>
+                    </div>
+                    <p class="experience-description">
+                        Designed FHIR and HL7-based data models enabling healthcare tracking for 400K+ patients across 12 health systems. Built data ingestion pipeline with Prefect, AWS, and Kafka. Led 8-person agile team as Scrum Master, improving sprint velocity by 70%.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Senior Software Engineer</h3>
+                            <p class="experience-company">Kaplan Test Prep</p>
+                        </div>
+                        <span class="experience-date">Aug 2018 - Apr 2020</span>
+                    </div>
+                    <p class="experience-description">
+                        Developed scalable bulk publishing system with AWS SQS & Lambda for 200+ content authors. Built configurable frontend library with Angular and Elasticsearch enabling advanced content searches. Improved ReactJS performance by 1000% through optimization techniques.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Full-Stack Software Engineer</h3>
+                            <p class="experience-company">Carta</p>
+                        </div>
+                        <span class="experience-date">Apr 2017 - Aug 2018</span>
+                    </div>
+                    <p class="experience-description">
+                        Built Carta SAFE financing tool with Django and VueJS, facilitating >$4MM in investments for 40+ investors and funding ~25 companies' seed rounds. Improved code quality with 50+ unit tests, reducing production exceptions by 80%.
+                    </p>
+                </div>
             </div>
-            <div class="card-action">
-              <a href="#">Read More...</a>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Skills</h2>
+                    <p class="section-subtitle">
+                        Technologies and tools I work with to build modern applications
+                    </p>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages & Frameworks</h3>
+                        <ul class="skill-list">
+                            <li>Python, FastAPI</li>
+                            <li>Ruby, Rails</li>
+                            <li>TypeScript, ReactJS</li>
+                            <li>Node.js, Java</li>
+                            <li>GraphQL, REST APIs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Data & Infrastructure</h3>
+                        <ul class="skill-list">
+                            <li>PostgreSQL, Redis</li>
+                            <li>Kafka, Elasticsearch</li>
+                            <li>Docker, Kubernetes</li>
+                            <li>AWS, Terraform</li>
+                            <li>Datadog, Monitoring</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>AI & Emerging Tech</h3>
+                        <ul class="skill-list">
+                            <li>PyTorch, Pandas, NumPy</li>
+                            <li>LLM Integration</li>
+                            <li>FHIR, HL7 Standards</li>
+                            <li>Microservices Architecture</li>
+                            <li>Agile Leadership</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-      </div>
-        <div class="col s12 m6">
-          <div class="card no_shadow">
-            <div class="card-image">
+        </section>
+
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="section-title">Let's Connect</h2>
+                    <p class="section-subtitle">
+                        I'm always interested in new opportunities and meaningful conversations about technology and collaboration.
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:matrharr@gmail.com" class="contact-link">
+                            <span>📧</span> Email
+                        </a>
+                        <a href="https://www.linkedin.com/in/matrharr" class="contact-link" target="_blank">
+                            <span>💼</span> LinkedIn
+                        </a>
+                        <a href="https://github.com/matrharr" class="contact-link" target="_blank">
+                            <span>🔗</span> GitHub
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="card-content">
-              <span class="card-title"><a class="waves-effect waves-light btn" href="#">Abstract_Data_Types</a></span>
-              <p></p>
-            </div>
-            <div class="card-action">
-              <a href="#">Read More...</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m6">
-          <div class="card no_shadow">
-            <div class="card-image">
-            </div>
-            <div class="card-content">
-              <span class="card-title"><a class="waves-effect waves-light btn" href="#">Non_Relational_Databases</a></span>
-              <p></p>
-            </div>
-            <div class="card-action">
-              <a href="#">Read More...</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m6">
-          <div class="card no_shadow">
-            <div class="card-image">
-            </div>
-            <div class="card-content">
-              <span class="card-title"><a class="waves-effect waves-light btn" href="#">Procs_And_Lambdas</a></span>
-              <p></p>
-            </div>
-            <div class="card-action">
-              <a href="#">Read More...</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m6">
-          <div class="card no_shadow">
-            <div class="card-image">
-            </div>
-            <div class="card-content">
-              <span class="card-title"><a class="waves-effect waves-light btn" href="#">Javascript_Modules</a></span>
-              <p></p>
-            </div>
-            <div class="card-action">
-              <a href="#">Read More...</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m6">
-          <div class="card no_shadow">
-            <div class="card-image">
-            </div>
-            <div class="card-content">
-              <span class="card-title"><a class="waves-effect waves-light btn" href="#">Polymorphic_Join_Table</a></span>
-              <p></p>
-            </div>
-            <div class="card-action">
-              <a href="#">Read More...</a>
-            </div>
-          </div>
-        </div>
-      </div>
+        </section>
+    </main>
 
-    <img class="sideline" src="assets/sideline.png">
-    <img class="quote" src="assets/quote2.png"> -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Matt Harris</p>
+        </div>
+    </footer>
 
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-  <h1 class="header no_link"><a class="no_link" name="projects">Portfolio</a></h1>
-    <div class="row">
-      <div class="col s6">
-        <div class="caption center-align">
-          <h3 class="portfolio_title" id="e-commerce">Thin Gifts</h3>
-          <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal1"><img width="100%" src="assets/thingifts.jpg"></a></h5>
-        </div>
-      </div>
-      <div class="col s6">
-        <div class="caption center-align">
-          <h3 class="portfolio_title" id="foundit">The Plus Project</h3>
-          <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal2"><img width='100%' src="assets/plus6.jpg"></a></h5>
-        </div>
-      </div>
-      <div class="col s6">
-        <div class="caption center-align">
-          <h3 class="portfolio_title" id="discovr">Discovr</h3>
-          <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal6"><img width='100%' src="assets/discovr.jpg"></a></h5>
-        </div>
-      </div>
-      <div class="col s6">
-       <div class="caption center-align">
-         <h3 class="portfolio_title " id="first_aid">SMS Card</h3>
-         <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal3"><img width='100%' src="assets/sms2.jpg"></a></h5>
-       </div>
-      </div>
-      <div class="col s6">
-        <div class="caption center-align">
-          <h3 class="portfolio_title" id="faker">Schwarzefaker</h3>
-          <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal4"><img width='100%' src="assets/faker.jpg"></a></h5>
-        </div>
-      </div>
-      <div class="col s6">
-        <div class="caption center-align">
-          <h3 class="portfolio_title" id="personal_site">Portfolio</h3>
-          <h5 class="light grey-text text-lighten-3 portfolio_text"><a class="modal-trigger" href="#modal5"><img width='100%' src="assets/mattsite.jpg"></a></h5>
-        </div>
-      </div>
-    </div>
+        // Add subtle fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-
-      <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h4 class="modal_title" id="ecommerce_modal">Thin Gifts</h4>
-          <img class="modal_img" src="assets/thingifts.jpg">
-          <p class="modal_text">
-            <a href="https://www.thingifts.com">Live site</a><br>
-            <a href="https://github.com/matrharr/thin_gifts_api">Github</a><br>
-            Role: Full Stack Engineer
-            <br><br>
-            Stack: Python, Django, PostgreSQL, Angular, Paypal API
-            <br><br>
-            An e-commerce site that sells and delivers greeting cards for special occasions with custom user messages.
-            <br>
-            - Developed Django rest framework API to manage session based shopping cart and orders for quick checkout.
-            <br>
-            - Built a responsive UI with CSS & Angular and integrated with Paypal SDK for convenient and fast payments.
-</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-        </div>
-      </div>
-
-      <div id="modal2" class="modal">
-        <div class="modal-content">
-          <h4 class="modal_title" id="foundit_modal">The Plus Project</h4>
-          <img class="modal_img" src="assets/plus6.jpg">
-          <p class="modal_text">
-            <a href="https://theplusproject.herokuapp.com/">Live site</a><br>
-            <a href="https://github.com/matrharr/theplusproject">Github</a><br>
-            Role: Full Stack Engineer + Content Writer
-            <br><br>
-            Stack: Rails, jQuery, PostgreSQL, CKEditor, Heroku
-            <br><br>
-            The Plus Project provides free educational content on web development and CS topics through Ruby and Javascript.<br />
-            - Wrote over 15 articles using images, concise term definitions and code snippets to teach abstract CS concepts
-            (data structures, algorithms, design patterns) along with practical code execution using JavaScript.<br />
-            - Constructed Ruby on Rails RESTful API with admin and user responsive web interfaces using custom CSS3.
-
-</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-blue btn-flat">Close</a>
-        </div>
-      </div>
-
-      <div id="modal3" class="modal">
-        <div class="modal-content">
-          <h4 class="modal_title" id="first_aid_modal">SMS Card</h4>
-          <img class="modal_img" src="assets/sms2.jpg">
-          <p class="modal_text">
-            <a href="https://github.com/matrharr/sms-card/">Github</a><br>
-            Role: Backend Engineer
-            <br><br>
-            Stack: Ruby, Rails, PostgreSQL, Twilio, Heroku
-            <br><br>
-            Mobile tool for business professionals to easily network with new acquaintances by sending their business cards via SMS.<br />
-            - Architected CLI-like SMS interface with Rails for users to text flags and specialized parameters for networking.<br />
-            - Constructed Ruby on Rails RESTful API to parse through data from Twilio messaging system and send relevant
-            business card information queried from PostgreSQL DB.
-
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-orange btn-flat">Close</a>
-        </div>
-      </div>
-
-      <div id="modal4" class="modal">
-        <div class="modal-content">
-          <h4 class="modal_title" id="gem_modal">Schwarzefaker</h4>
-          <img class="modal_img" src="assets/faker.jpg">
-          <p class="modal_text">
-            <a href="https://rubygems.org/gems/schwarzefaker">RubyGems Documentation</a><br>
-            Role: Ruby Terminator
-            <br><br>
-            Faker Ruby Gem that populates database with Arnold Schwarzenegger movies, quotes, characters and villains.<br>
-            -Received 600+ downloads from in first 2 weeks of being publically available at RubyGems.org.<br>
-            -Maintained ~5 versioning updates and utilized Ruby class and module namespacing for method calls.<br>
-            -Allows developers to populate their databases with a variety of Arnold inspired information.<br>
- </p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">Close</a>
-        </div>
-      </div>
-
-      <div id="modal5" class="modal">
-        <div class="modal-content">
-          <h4 class="modal_title" id="site_modal">Portfolio</h4>
-          <img class="modal_img" src="assets/mattsite.jpg">
-          <p class="modal_text">
-            <a href="https://github.com/matrharr/matrharr.github.io">Github</a><br>
-            Role: Front End Engineer
-            <br><br>
-            Stack: HTML, CSS, Javascript, jQuery, AJAX, Photoshop, Materialize
-            <br><br>
-            Built a personal website to showcase personality, experience, projects and specific skills while maintaining a clean, mobile and web friendly appearance.</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">Close</a>
-        </div>
-      </div>
-
-      <div id="modal6" class="modal">
-        <div class="modal-content">
-          <h4 class="modal_title" id="discovr_modal">Discovr</h4>
-          <img class="modal_img" src="assets/discovr.jpg">
-          <p class="modal_text">
-            <a href="https://discovvr.herokuapp.com/">Live site</a><br>
-            <a href="">Github</a><br>
-            Role: Front End Engineer
-            <br><br>
-            Stack: ReactJS, Webpack, Javascript, Heroku
-            <br><br>
-            API-driven website where users quickly research the web for relevant YouTube videos, news articles and wikipedia entries.<br />
-            - Built ReactJS FE that requests multiple web server APIs including YouTube, The Guardian, and wikipedia.<br />
-            - Created custom parser to select and format raw HTML output of Wikipedia API.<br />
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">Close</a>
-        </div>
-      </div>
-
-
-  <h1 class="header no_link"><a class="no_link" name="contact">Contact</a></h1>
-
-  <div class="row contact_form">
-    <form action="MAILTO:matrharr@gmail.com" method="post" name="contact_form" enctype="text/plain" class="col s12">
-      <div class="row">
-        <div class="input-field col s5">
-          <input id="first_name" name="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s5">
-          <input id="last_name" name="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-        <div class="input-field col s5">
-          <input id="email" name="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-        <div class="input-field col s5">
-          <input id="company" name="company" type="text" class="validate">
-          <label for="company">Company</label>
-        </div>
-      </div>
-        <div class="input-field col s6">
-          <textarea id="textarea1" name="message" class="materialize-textarea"></textarea>
-          <label for="textarea1">Message</label>
-        </div>
-        <button class="btn waves-effect waves-light submit_btn" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
-    </form>
-  </div>
-
-
+        // Observe elements for animation
+        document.querySelectorAll('.project-card, .skill-category, .experience-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
-
 </html>
