@@ -11,14 +11,18 @@
         :root {
             --primary-text: #1a1a1a;
             --secondary-text: #666;
-            --accent-color: #2563eb;
-            --accent-secondary: #1e40af;
+            --accent-color: #0f172a;
+            --accent-secondary: #1e293b;
+            --teal-accent: #0d9488;
+            --teal-light: #14b8a6;
+            --navy-deep: #0f172a;
+            --navy-medium: #1e293b;
             --light-bg: #fafafa;
             --border-color: #e5e5e5;
             --subtle-bg: #f8fafc;
             --max-width: 1000px;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-subtle: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --gradient-primary: linear-gradient(135deg, #0f172a 0%, #0d9488 100%);
+            --gradient-subtle: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05);
             --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.05);
             --shadow-large: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -38,7 +42,7 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--primary-text);
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f0fdfa 100%);
             min-height: 100vh;
         }
 
@@ -123,9 +127,65 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.03) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 20%, rgba(15, 23, 42, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(13, 148, 136, 0.04) 0%, transparent 50%);
             z-index: -1;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 400px;
+            text-align: left;
+        }
+
+        .hero-image {
+            flex: 0 0 400px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-photo {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow-large);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-photo::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile-photo:hover::before {
+            opacity: 1;
         }
 
         .hero h1 {
@@ -143,13 +203,29 @@
 
         .hero .subtitle {
             font-size: 1.375rem;
-            color: var(--accent-color);
+            color: var(--teal-accent);
             font-weight: 500;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             letter-spacing: 0.025em;
+        }
+
+        .hero .location {
+            font-size: 1rem;
+            color: var(--secondary-text);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.5rem;
+        }
+
+        .hero .location::before {
+            content: "📍";
+            font-size: 0.9rem;
         }
 
         .hero .description {
@@ -208,12 +284,12 @@
 
         .btn-secondary {
             background: transparent;
-            color: var(--accent-color);
-            border-color: var(--accent-color);
+            color: var(--teal-accent);
+            border-color: var(--teal-accent);
         }
 
         .btn-secondary:hover {
-            background: var(--accent-color);
+            background: var(--teal-accent);
             color: white;
         }
 
@@ -303,7 +379,7 @@
 
         .experience-company {
             font-size: 1rem;
-            color: var(--accent-color);
+            color: var(--teal-accent);
             font-weight: 500;
             position: relative;
         }
@@ -384,6 +460,109 @@
             padding: 0.25rem 0;
             color: var(--secondary-text);
             font-size: 0.9rem;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .education-item {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 2px 0 0 2px;
+        }
+
+        .education-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-large);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: nowrap;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .education-header > div {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .education-degree {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            font-size: 1rem;
+            color: var(--teal-accent);
+            font-weight: 500;
+            position: relative;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-school::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .education-item:hover .education-school::after {
+            width: 100%;
+        }
+
+        .education-location {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            font-style: italic;
+        }
+
+        .education-date {
+            font-size: 1rem;
+            color: var(--primary-text);
+            font-weight: 600;
+            flex-shrink: 0;
+            white-space: nowrap;
+            background: rgba(13, 148, 136, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            border: 1px solid var(--teal-accent);
+        }
+
+        .education-description {
+            color: var(--secondary-text);
+            line-height: 1.7;
         }
 
         /* Projects Section */
@@ -504,7 +683,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(13, 148, 136, 0.04) 0%, transparent 70%);
             z-index: 0;
         }
 
@@ -560,6 +739,30 @@
                 padding: 0 1rem;
             }
 
+            .hero-content {
+                flex-direction: column-reverse;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-text {
+                min-width: auto;
+                text-align: center;
+            }
+
+            .hero .location {
+                justify-content: center;
+            }
+
+            .hero-image {
+                flex: none;
+            }
+
+            .profile-photo {
+                width: 250px;
+                height: 250px;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -582,8 +785,14 @@
                 grid-template-columns: 1fr;
             }
 
-            .projects-grid {
+            .education-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
             }
 
             .contact-links {
@@ -608,6 +817,11 @@
 
             .hero h1 {
                 font-size: 2rem;
+            }
+
+            .profile-photo {
+                width: 220px;
+                height: 220px;
             }
 
             section {
@@ -644,31 +858,38 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Matt Harris</a>
+            <a href="#about" class="logo">Matt Harris</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
+      </div>
     </nav>
 
     <main>
         <section class="hero" id="about">
             <div class="container">
-                <h1>Matt Harris</h1>
-                <p class="subtitle">Software Engineer</p>
-                <p class="description">
-                    I build thoughtful, user-centered applications with a focus on clean code, 
-                    collaborative development, and meaningful impact. Passionate about creating 
-                    solutions that bring people, productivity, and purpose together.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#experience" class="btn btn-primary">View Experience</a>
-                    <a href="Matt_Harris_resume (2) (1).pdf" class="btn btn-secondary" target="_blank">Resume</a>
-                </div>
-            </div>
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Matt Harris</h1>
+                        <p class="subtitle">Software Engineer</p>
+                        <p class="location">Austin, TX</p>
+                        <p class="description">
+                            I write code, drink coffee, play tennis, and try to get smarter. With an English degree from University of Tennessee at Chattanooga and a Master's in Computer Science from Georgia Tech, I'm currently building AI-powered construction tools at Procore, helping companies manage projects without the usual chaos. I've previously worked in healthcare, education, and finance industries.
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="#experience" class="btn btn-primary">View Experience</a>
+                            <a href="Matt_Harris_resume_2025.pdf" class="btn btn-secondary" target="_blank">Resume</a>
+        </div>
+      </div>
+                    <div class="hero-image">
+                        <img src="matt-snow.jpg" alt="Matt Harris" class="profile-photo">
+        </div>
+      </div>
+    </div>
         </section>
 
         <section id="experience">
@@ -678,60 +899,60 @@
                     <p class="section-subtitle">
                         Building software solutions with a focus on collaboration and clean architecture
                     </p>
-                </div>
-                
+  </div>
+
                 <div class="experience-item">
                     <div class="experience-header">
                         <div>
                             <h3 class="experience-title">Staff Software Engineer</h3>
                             <p class="experience-company">Procore</p>
-                        </div>
+            </div>
                         <span class="experience-date">Aug 2022 - Present</span>
-                    </div>
+            </div>
                     <p class="experience-description">
                         Tech Lead for Conversations team, replatformed from Ruby on Rails monolith to distributed system with Kafka, Redis, and microservices. Scaled product from beta to GA serving 6,000+ companies. Integrated Procore Copilot (LLM) enabling AI-powered messaging via FastAPI and ReactJS.
                     </p>
-                </div>
+      </div>
 
                 <div class="experience-item">
                     <div class="experience-header">
                         <div>
                             <h3 class="experience-title">Senior Software Engineer</h3>
                             <p class="experience-company">Actium Health</p>
-                        </div>
+        </div>
                         <span class="experience-date">Nov 2020 - July 2022</span>
-                    </div>
+      </div>
                     <p class="experience-description">
                         Designed FHIR and HL7-based data models enabling healthcare tracking for 400K+ patients across 12 health systems. Built data ingestion pipeline with Prefect, AWS, and Kafka. Led 8-person agile team as Scrum Master, improving sprint velocity by 70%.
-                    </p>
-                </div>
+</p>
+        </div>
 
                 <div class="experience-item">
                     <div class="experience-header">
                         <div>
                             <h3 class="experience-title">Senior Software Engineer</h3>
                             <p class="experience-company">Kaplan Test Prep</p>
-                        </div>
+        </div>
                         <span class="experience-date">Aug 2018 - Apr 2020</span>
-                    </div>
+      </div>
                     <p class="experience-description">
                         Developed scalable bulk publishing system with AWS SQS & Lambda for 200+ content authors. Built configurable frontend library with Angular and Elasticsearch enabling advanced content searches. Improved ReactJS performance by 1000% through optimization techniques.
-                    </p>
-                </div>
+</p>
+        </div>
 
                 <div class="experience-item">
                     <div class="experience-header">
                         <div>
                             <h3 class="experience-title">Full-Stack Software Engineer</h3>
                             <p class="experience-company">Carta</p>
-                        </div>
+        </div>
                         <span class="experience-date">Apr 2017 - Aug 2018</span>
-                    </div>
+      </div>
                     <p class="experience-description">
                         Built Carta SAFE financing tool with Django and VueJS, facilitating >$4MM in investments for 40+ investors and funding ~25 companies' seed rounds. Improved code quality with 50+ unit tests, reducing production exceptions by 80%.
                     </p>
-                </div>
-            </div>
+        </div>
+      </div>
         </section>
 
         <section id="skills">
@@ -740,8 +961,8 @@
                     <h2 class="section-title">Skills</h2>
                     <p class="section-subtitle">
                         Technologies and tools I work with to build modern applications
-                    </p>
-                </div>
+ </p>
+        </div>
                 
                 <div class="skills-grid">
                     <div class="skill-category">
@@ -753,8 +974,8 @@
                             <li>Node.js, Java</li>
                             <li>GraphQL, REST APIs</li>
                         </ul>
-                    </div>
-                    
+      </div>
+
                     <div class="skill-category">
                         <h3>Data & Infrastructure</h3>
                         <ul class="skill-list">
@@ -764,8 +985,8 @@
                             <li>AWS, Terraform</li>
                             <li>Datadog, Monitoring</li>
                         </ul>
-                    </div>
-                    
+      </div>
+
                     <div class="skill-category">
                         <h3>AI & Emerging Tech</h3>
                         <ul class="skill-list">
@@ -775,18 +996,60 @@
                             <li>Microservices Architecture</li>
                             <li>Agile Leadership</li>
                         </ul>
-                    </div>
+        </div>
                 </div>
             </div>
         </section>
 
+        <section id="education">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Education</h2>
+                    <p class="section-subtitle">
+                        Academic foundation spanning liberal arts and computer science
+                    </p>
+                </div>
+                
+                <div class="education-grid">
+                    <div class="education-item">
+                        <div class="education-header">
+                            <div>
+                                <h3 class="education-degree">MS Computer Science</h3>
+                                <p class="education-school">Georgia Institute of Technology</p>
+                                <p class="education-location">Atlanta, GA</p>
+                            </div>
+                            <span class="education-date">2023</span>
+                        </div>
+                        <p class="education-description">
+                            Advanced coursework in algorithms, machine learning, and software engineering. 
+                            Focused on practical applications of AI and data science in real-world systems.
+                        </p>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-header">
+                            <div>
+                                <h3 class="education-degree">BA English</h3>
+                                <p class="education-school">University of Tennessee at Chattanooga</p>
+                                <p class="education-location">Chattanooga, TN</p>
+                            </div>
+                            <span class="education-date">2011</span>
+                        </div>
+                        <p class="education-description">
+                            Liberal arts foundation with emphasis on critical thinking, communication, and 
+                            analytical writing. This background brings unique perspective to technical problem-solving.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="contact" id="contact">
             <div class="container">
                 <div class="contact-content">
                     <h2 class="section-title">Let's Connect</h2>
                     <p class="section-subtitle">
-                        I'm always interested in new opportunities and meaningful conversations about technology and collaboration.
+                        I'm always interested in new opportunities or to meet new people.
                     </p>
                     <div class="contact-links">
                         <a href="mailto:matrharr@gmail.com" class="contact-link">
@@ -798,9 +1061,9 @@
                         <a href="https://github.com/matrharr" class="contact-link" target="_blank">
                             <span>🔗</span> GitHub
                         </a>
-                    </div>
-                </div>
-            </div>
+        </div>
+        </div>
+      </div>
         </section>
     </main>
 
